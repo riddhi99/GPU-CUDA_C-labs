@@ -1,0 +1,21 @@
+default: hw_properties square_parallel vec_parallel square_set_numbers vector_add vec_parallel_blocks
+
+hw_properties: hw_properties.cu
+	nvcc hw_properties.cu -o hw_properties
+
+square_parallel: square_parallel.cu
+	nvcc square_parallel.cu -o square_parallel
+
+vec_parallel: vec_parallel.cu
+	nvcc vec_parallel.cu -o vec_parallel
+
+square_set_numbers: square_set_numbers.c
+	gcc square_set_numbers.c -o square_serial -lm -w -pg
+
+vector_add: vector_add.c
+	gcc vector_add.c -o vector_add_serial -lm -w -pg
+
+vec_parallel_blocks: vec_parallel_blocks.cu
+	nvcc vec_parallel_blocks.cu -o vec_parallel_blocks
+clean:
+	rm hw_properties square_parallel vec_parallel square_serial vector_add_serial vec_parallel_blocks

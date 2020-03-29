@@ -1,0 +1,31 @@
+Created By: Riddhi Thakker (201601124) & Purva Mhasakar (201601082)
+Date: 21-09-2019
+
+Steps to get the required results:
+
+1) Download all the test image files from the link shared below and place them in the same folder as that of the code files (current folder)
+Link: https://drive.google.com/file/d/1AY9P32cybphLFxI73cQHKShwaLp7MU0S/view?usp=sharing
+
+2) Write following commands on the command prompt:
+$make
+//this will compile all the .c and .cu files
+
+$sh run_script.sh
+// this script will run all the executables and after that will also run python scripts to generate required plots
+
+NOTE:
+time_analysis_32x32_block.png : this is the time vs problem size comparison among serial and parallel codes of image conversion (rgb to grayscale).
+
+speedup_analysis_blocks.png : this is the speedup vs problem size comparison for different block sizes considered for results.
+
+time_CD_analysis_blocks.png : this graph has one value where control divergence is observed, this Control divergence is implicitly implemeted to compare its result with other thread organization choices.
+
+time_analysis_blocks.png : this is the time vs problem size comparison between different block sizes chosen, control divergence is not included among the choices of block size in this graph.
+
+serial_image.c : this is the C code for converting RGB image to grayscale image. The size of the images goes from 2^7 to 2^27 (both included).
+
+parallel_image.cu : This is CUDA code for the same purpose with fixed block size of (32x32).
+
+block_parallel.cu : This CUDA code computes time required to carry out parallel grayscale conversion for different image sizes with varying block sizes. Block sizes varies from 2^5 to 2^10. We started from 2^5 because a warp consists of 32 threads, so the minimum possible thread organization would be 32, and the maximum would be equal to that of the max size of the threads per block (i.e. 1024).
+
+block_CD.cu :This CUDA code simply considers control divergence by starting the block sizing from 2^4. 

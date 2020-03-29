@@ -1,0 +1,25 @@
+Following commands should be followed while executing the folder:
+
+$make
+
+// This will compile all the .c files and .cu files
+
+$./run_script
+
+// This will run all the files present in the folder and will also generate different graphs
+
+ After executing run_script, several plots will be generated:
+
+ correct_sup_vector.png : speedup vs problem size with different block sizes
+
+ speedup_both.png : speedup comparison of vector addition and square of set of numbers
+
+ plot_square.png : time vs problem size for comparison of serial and parallel code of square of set of numbers
+
+ plot_tp : throughput vs problem size for comparison of vector addition and square of set of numbers
+
+ correct_tp_vector.png : throughput vs problem size with different block sizes for vector addition
+
+correct_time_vector.png : time vs problem size for different block sizes of vector addition
+
+plot_vector.png : time vs problem size for comparison of serial and parallel code of vector addition
